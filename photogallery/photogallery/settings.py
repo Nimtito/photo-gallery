@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'photogallery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Gallery_db',
+        'PASSWORD':'Nimrod12',
+        'USER':"Nimtito",
+        'PORT':'5433',
+        'HOST':"localhost",
     }
 }
 
