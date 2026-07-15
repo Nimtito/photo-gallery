@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'Gallery_db',
         'PASSWORD':'Nimrod12',
         'USER':"Nimtito",
-        'PORT':'5433',
+        'PORT':'5432',
         'HOST':"localhost",
     }
 }
