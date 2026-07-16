@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,14 +80,18 @@ WSGI_APPLICATION = 'photogallery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Gallery_db',
-        'PASSWORD':'Nimrod12',
-        'USER':"Nimtito",
-        'PORT':'5432',
-        'HOST':"localhost",
+        'NAME': config("DATABASE_NAME"),
+        'PASSWORD':config("DATABASE_PASSWORD"),
+        'USER':config("DATABASE_USER"),
+        'PORT':config("DATABASE_PORT"),
+        'HOST':config("DATABASE_HOST"),
     }
 }
-
+cloudinary.config(
+    cloud_name = config("CLOUDINARY_CLOUD_NAME"),
+    api_key =("CLOUDINARY_API_KEY"),
+    api_secret =("CLOUDINARY_API_SECRET"),
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
